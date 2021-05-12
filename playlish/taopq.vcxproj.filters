@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\field.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\internal\connection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\internal\demangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\internal\printf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\internal\strtox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\internal\transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\result.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\result_traits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\row.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\src\lib\pq\table_writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\connection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\connection_pool.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\field.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\connection.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\demangle.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\dependent_false.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\endian.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\endian_gcc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\endian_win.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\exclusive_scan.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\gen.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\is_bytea_parameter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\parameter_binary_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\parameter_text_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\parameter_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\parameter_traits_helper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\pool.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\printf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\strtox.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\transaction.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\internal\unreachable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\isolation_level.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\null.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\parameter_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\result.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\result_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\result_traits_optional.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\result_traits_pair.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\result_traits_tuple.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\row.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\span.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\table_writer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\include\tao\pq\transaction.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Lenovo\source\repos\playlish\playlish\taopq-master\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{227E91A4-4C77-37EC-AFF9-016FEBE6FAE7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{637CB275-0FD4-3496-8EBE-1BBE0B477B5D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
