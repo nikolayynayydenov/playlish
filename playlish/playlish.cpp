@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     SAConnection con;
 
     try {
-        con.Connect(_TSA("DESKTOP-GI5Q4L5\\SQLEXPRESS@playground"), _TSA("nikolay"), _TSA("querty"), SA_SQLServer_Client);
+        con.Connect(_TSA("DESKTOP-GI5Q4L5\\SQLEXPRESS@playground"), _TSA("playlish_login_name"), _TSA("playlish_user_password"), SA_SQLServer_Client);
         printf("We are connected!\n");
 
         SACommand insert(&con);
