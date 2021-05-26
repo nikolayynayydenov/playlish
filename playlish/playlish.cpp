@@ -4,11 +4,29 @@
 #include <iostream>
 #include <string>
 #include "./App.h"
-// TODO: config library does network: https://github.com/nlohmann/json
-// #include "./include/tao/config.hpp"
 
-int main()
-{
-	std::cout << __cplusplus << std::endl;
-	App::run();	
+#include <stdio.h>  // for printf
+#include <SQLAPI.h> // main SQLAPI++ header
+
+int main(int argc, char* argv[]) {
+    SAConnection con;
+
+    try {
+        con.Connect(_TSA("DESKTOP-GI5Q4L5\\SQLEXPRESS@playground"), _TSA("nikolay"), _TSA("querty"), SA_SQLServer_Client);
+        printf("We are connected!\n");
+
+        SACommand insert(&con);
+        insert.setCommandText(_TSA("INSERT INTO articles (name) VALUES (:1)"));
+        insert << _TSA("Tom Patt");
+        insert.Execute();
+
+        con.Disconnect();
+        printf("We are disconnected!\n");
+    }
+    catch (SAException& x) {
+        con.Rollback();
+        printf("%s\n", x.ErrText().GetMultiByteChars());
+    }
+
+    return 0;
 }
