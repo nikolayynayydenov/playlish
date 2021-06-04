@@ -176,6 +176,8 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Controllers\AuthController.h" />
     <ClInclude Include="Controllers\MenuController.h" />
+    <ClInclude Include="DB.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
