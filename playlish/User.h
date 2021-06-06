@@ -18,7 +18,7 @@ public:
 
 	static bool isLoggedIn()
 	{
-		return User::getInstance().isLoggedIn;
+		return User::getInstance().isLogged;
 	}
 
 	static void login(SACommand& selectCommand)
@@ -34,18 +34,21 @@ public:
 		user.isLogged = true;
 	}
 
+	static void logout()
+	{
+		User::getInstance().isLogged = false;
+	}
+
 	static std::string get(std::string key)
 	{
 		return User::getInstance().fields[key];
 	}
 
 private:
-	bool isLogged = false;
+	bool isLogged;
 	std::map<std::string, std::string> fields;
 
-	User() {
-
-	}
+	User() :isLogged(false) { }
 
 	static void set(std::string key, std::string value)
 	{

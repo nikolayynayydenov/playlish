@@ -174,8 +174,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="Controllers\AuthController.h" />
     <ClInclude Include="Controllers\MenuController.h" />
+    <ClInclude Include="Controllers\PlaylistController.h" />
+    <ClInclude Include="Controllers\SearchController.h" />
+    <ClInclude Include="Controllers\SongController.h" />
     <ClInclude Include="DB.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>

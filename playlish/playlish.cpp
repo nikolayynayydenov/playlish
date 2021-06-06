@@ -1,12 +1,10 @@
-#include <iostream>
-#include <string>
 #include "./App.h"
 #include "./DB.h"
-#include <SQLAPI.h>
+#include "./User.h"
 
 int main(int argc, char* argv[]) {
 	try {
-		App::run();
+		App::run(); 
 	}
 	catch (SAException& x) {
 		DB::conn().Rollback();

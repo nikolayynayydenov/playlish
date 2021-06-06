@@ -2,13 +2,18 @@
 
 #include "./Controllers/MenuController.h"
 
+
 class App
 {
 public:
 	static void run()
 	{
-		MenuController::showOptions();
-		MenuController::processInput();
+		int input;
+
+		do {
+			MenuController::showOptions();
+			input = MenuController::processInput();
+		} while (input != 0);
 	}
 };
 

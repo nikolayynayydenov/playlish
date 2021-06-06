@@ -5,6 +5,8 @@
 #include <iostream>
 #include "./../User.h"
 #include "./../DB.h"
+#include "./../App.h"
+#include "./MenuController.h"
 
 class AuthController
 {
@@ -27,6 +29,11 @@ public:
 		if (authController.validateSignInInput()) {
 			authController.signIn();
 		}
+	}
+
+	static void logout()
+	{
+		User::logout();
 	}
 
 	AuthController() { }
@@ -126,8 +133,6 @@ protected:
 
 		if (select.FetchNext()) {
 			User::login(select);
-			std::cout << "User logged in" << std::endl;
-			std::cout << "Name of logged in user: " << User::get("name") << std::endl;
 		}
 		else {
 			std::cout << "Invalid username or password" << std::endl;
