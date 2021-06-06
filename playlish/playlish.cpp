@@ -1,14 +1,16 @@
-#include "./App.h"
 #include "./DB.h"
-#include "./User.h"
+#include "./Common/Navigator.h"
 
 int main(int argc, char* argv[]) {
 	try {
-		App::run(); 
+		Navigator::goTo("menu");
 	}
 	catch (SAException& x) {
 		DB::conn().Rollback();
 		printf("SAException: %s\n", x.ErrText().GetMultiByteChars());
+	}
+	catch (...) {
+		printf("General exception.");
 	}
 
 	return 0;

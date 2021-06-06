@@ -170,10 +170,16 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Common\App.cpp" />
+    <ClCompile Include="Common\Navigator.cpp" />
+    <ClCompile Include="Controllers\AuthController.cpp" />
+    <ClCompile Include="Controllers\MenuController.cpp" />
+    <ClCompile Include="Controllers\SongController.cpp" />
     <ClCompile Include="playlish.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h" />
+    <ClInclude Include="Common\App.h" />
+    <ClInclude Include="Common\Navigator.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Controllers\AuthController.h" />
     <ClInclude Include="Controllers\MenuController.h" />

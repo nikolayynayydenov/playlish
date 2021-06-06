@@ -9,9 +9,9 @@ public:
 		std::cout << "Hello from Playlist add()" << std::endl;
 	}
 
-	static void showMyPlaylists()
+	static void showOwnPlaylists()
 	{
-		std::cout << "Hello from Playlist showMyPlaylists()" << std::endl;
+		std::cout << "Hello from Playlist showOwnPlaylists()" << std::endl;
 	}
 };
 

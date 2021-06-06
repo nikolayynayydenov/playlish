@@ -2,9 +2,23 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="playlish.cpp" />
+    <ClCompile Include="Common\Navigator.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\AuthController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\MenuController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Controllers\SongController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\App.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="App.h" />
     <ClInclude Include="Controllers\AuthController.h">
       <Filter>Controllers</Filter>
     </ClInclude>
@@ -28,6 +42,12 @@
     </ClInclude>
     <ClInclude Include="Controllers\SearchController.h">
       <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Navigator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\App.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
