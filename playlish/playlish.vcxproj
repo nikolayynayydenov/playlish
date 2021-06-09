@@ -175,6 +175,7 @@
     <ClCompile Include="Controllers\AuthController.cpp" />
     <ClCompile Include="Controllers\GenreController.cpp" />
     <ClCompile Include="Controllers\MenuController.cpp" />
+    <ClCompile Include="Controllers\PlaylistController.cpp" />
     <ClCompile Include="Controllers\SongController.cpp" />
     <ClCompile Include="playlish.cpp" />
   </ItemGroup>
@@ -185,6 +186,7 @@
     <ClInclude Include="Common\User.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Controllers\AuthController.h" />
+    <ClInclude Include="Controllers\Controller.h" />
     <ClInclude Include="Controllers\GenreController.h" />
     <ClInclude Include="Controllers\MenuController.h" />
     <ClInclude Include="Controllers\PlaylistController.h" />

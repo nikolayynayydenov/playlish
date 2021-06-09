@@ -20,6 +20,9 @@
     <ClCompile Include="Controllers\GenreController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="Controllers\PlaylistController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\AuthController.h">
@@ -54,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="Common\User.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\Controller.h">
+      <Filter>Controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

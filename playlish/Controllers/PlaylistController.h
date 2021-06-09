@@ -1,17 +1,22 @@
 #pragma once
 
 #include <iostream>
-class PlaylistController
+#include "./Controller.h"
+#include <string>
+
+class PlaylistController: public Controller
 {
 public:
-	static void add()
-	{
-		std::cout << "Hello from Playlist add()" << std::endl;
-	}
+	static void add();
 
-	static void showOwnPlaylists()
-	{
-		std::cout << "Hello from Playlist showOwnPlaylists()" << std::endl;
-	}
+	static void showOwnPlaylists();
+
+protected:
+	std::string playlistName;
+
+	// add
+	void insertToDb();
+	void promptAddInput();
+	bool validateAddInput() const;
 };
 

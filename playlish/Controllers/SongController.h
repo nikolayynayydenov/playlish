@@ -1,13 +1,14 @@
 #pragma once
 #include <string>
+#include "./Controller.h"
 
-class SongController
+class SongController: public Controller 
 {
 public:
 	static void add();
 
 	SongController();
-private:
+protected:
 	std::string songName;
 	int length;
 	std::string performer;
