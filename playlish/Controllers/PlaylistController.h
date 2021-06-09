@@ -4,7 +4,7 @@
 #include "./Controller.h"
 #include <string>
 
-class PlaylistController: public Controller
+class PlaylistController : public Controller
 {
 public:
 	static void add();
@@ -13,10 +13,16 @@ public:
 
 protected:
 	std::string playlistName;
+	int id;
 
 	// add
 	void insertToDb();
 	void promptAddInput();
 	bool validateAddInput() const;
-};
+	void attachToUser(long playlistId) const;
 
+	//show
+	void printOwnPlaylists() const;
+	void promptPlaylistChoice();
+	void displayPlaylistById() const;
+};
