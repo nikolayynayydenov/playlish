@@ -1,8 +1,8 @@
 #include "./AuthController.h"
 #include <SQLAPI.h>
 #include <iostream>
-#include "./../User.h"
-#include "./../DB.h"
+#include "./../Common/User.h"
+#include "./../Common/DB.h"
 #include "./MenuController.h"
 #include "./../Common/Navigator.h"
 #include "./../Common/App.h"

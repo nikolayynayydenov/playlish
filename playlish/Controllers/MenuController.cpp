@@ -3,7 +3,7 @@
 #include "./SongController.h"
 #include "./PlaylistController.h"
 #include "./SearchController.h"
-#include "./../User.h"
+#include "./../Common/User.h"
 #include "./MenuController.h"
 #include "./../Common/Navigator.h"
 

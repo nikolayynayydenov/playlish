@@ -173,21 +173,23 @@
     <ClCompile Include="Common\App.cpp" />
     <ClCompile Include="Common\Navigator.cpp" />
     <ClCompile Include="Controllers\AuthController.cpp" />
+    <ClCompile Include="Controllers\GenreController.cpp" />
     <ClCompile Include="Controllers\MenuController.cpp" />
     <ClCompile Include="Controllers\SongController.cpp" />
     <ClCompile Include="playlish.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\App.h" />
+    <ClInclude Include="Common\DB.h" />
     <ClInclude Include="Common\Navigator.h" />
+    <ClInclude Include="Common\User.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Controllers\AuthController.h" />
+    <ClInclude Include="Controllers\GenreController.h" />
     <ClInclude Include="Controllers\MenuController.h" />
     <ClInclude Include="Controllers\PlaylistController.h" />
     <ClInclude Include="Controllers\SearchController.h" />
     <ClInclude Include="Controllers\SongController.h" />
-    <ClInclude Include="DB.h" />
-    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />

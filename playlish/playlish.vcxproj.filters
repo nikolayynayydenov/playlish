@@ -17,6 +17,9 @@
     <ClCompile Include="Common\App.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="Controllers\GenreController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\AuthController.h">
@@ -25,13 +28,7 @@
     <ClInclude Include="Controllers\MenuController.h">
       <Filter>Controllers</Filter>
     </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="Console.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="DB.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Controllers\SongController.h">
@@ -47,6 +44,15 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\App.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Controllers\GenreController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\DB.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\User.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
