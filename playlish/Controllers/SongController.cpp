@@ -1,7 +1,7 @@
 #include <iostream>
+#include <SQLAPI.h>
 #include "./SongController.h"
 #include "./GenreController.h"
-#include <SQLAPI.h>
 #include "./../Common/DB.h"
 #include "./../Common/App.h"
 #include "./../Common/Navigator.h"
@@ -94,4 +94,22 @@ void SongController::promptAddInput()
 bool SongController::validateAddInput() const
 {
 	return true;
+}
+
+void SongController::printFromCommand(SACommand& insert)
+{
+	if (insert.Field("songName").asString().GetMultiByteCharsLength() != 0) {
+		// songName is not null
+		cout << "Songs: " << endl << endl;
+
+		do {
+			cout << insert.Field("song_id").asLong() << ". " << insert.Field("songName").asString().GetMultiByteChars() <<
+				" (" << insert.Field("length").asLong() << ")" << endl;
+		} while (insert.FetchNext());
+
+		cout << endl;
+	}
+	else {
+		cout << "No songs here yet" << endl << endl;
+	}
 }

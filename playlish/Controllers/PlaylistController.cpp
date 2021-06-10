@@ -2,6 +2,7 @@
 
 #include "./PlaylistController.h"
 #include "./PlaylistSongsController.h"
+#include "./SongController.h"
 
 #include "./../Common/App.h"
 #include "./../Common/Navigator.h"
@@ -41,7 +42,14 @@ void PlaylistController::showOwnPlaylists()
 {
 	PlaylistController playlistController;
 	playlistController.printOwnPlaylists();
+	playlistController.showGoBackOption();
 	playlistController.promptPlaylistChoice();
+	
+	if (playlistController.id == 0) {
+		Navigator::goTo("menu");
+		return;
+	}	
+
 	Console::clear();
 	playlistController.displayPlaylistById();
 	playlistController.promptPlaylistAction();
@@ -66,10 +74,19 @@ void PlaylistController::printOwnPlaylists() const
 
 	cout << "Below are your playlists. Type in an id to view the playlist's songs" << endl << endl;
 
+	int counter = 0;
+
 	while (insert.FetchNext()) {
 		cout << insert.Field("id").asString().GetMultiByteChars() << ". " <<
 			insert.Field("name").asString().GetMultiByteChars() << endl;
+
+		counter++;
 	}
+
+	if (counter == 0) {
+		cout << "You don't have any playlists yet";
+	}
+
 	cout << endl;
 }
 
@@ -93,23 +110,10 @@ void PlaylistController::displayPlaylistById() const
 	if (insert.FetchNext()) {
 		cout << "Playlist name: " << insert.Field("playlistName").asString().GetMultiByteChars() << endl << endl;
 
-		if (insert.Field("songName").asString().GetMultiByteCharsLength() != 0) {
-			// songName is not null
-			cout << "Songs: " << endl << endl;
-
-			do {
-				cout << insert.Field("song_id").asLong() << ". " << insert.Field("songName").asString().GetMultiByteChars() <<
-					" (" << insert.Field("length").asLong() << ")" << endl;
-			} while (insert.FetchNext());
-
-			cout << endl;
-		}
-		else {
-			cout << "No songs here yet" << endl << endl;
-		}
+		SongController::printFromCommand(insert);
 	}
 	else {
-		cout << "Playlist was not found." << endl;
+		cout << "Playlist was not found." << endl << endl;
 	}
 }
 
@@ -182,4 +186,9 @@ void PlaylistController::deletePlaylist() const
 	if (deleteCommand.RowsAffected() == 0) {
 		throw exception("Unable to delete playlist");
 	}
+}
+
+void PlaylistController::showGoBackOption() const
+{
+	cout << endl << "0. Go back" << endl << endl;
 }

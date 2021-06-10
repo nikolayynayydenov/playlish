@@ -29,5 +29,6 @@ protected:
 	// other
 	void promptPlaylistAction();
 	void handlePlaylistAction();
+	void showGoBackOption() const;
 	
 };
