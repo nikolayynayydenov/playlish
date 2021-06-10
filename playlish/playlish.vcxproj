@@ -176,7 +176,9 @@
     <ClCompile Include="Controllers\GenreController.cpp" />
     <ClCompile Include="Controllers\MenuController.cpp" />
     <ClCompile Include="Controllers\PlaylistController.cpp" />
+    <ClCompile Include="Controllers\PlaylistSongsController.cpp" />
     <ClCompile Include="Controllers\SongController.cpp" />
+    <ClCompile Include="Models\Playlist.cpp" />
     <ClCompile Include="playlish.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -190,8 +192,10 @@
     <ClInclude Include="Controllers\GenreController.h" />
     <ClInclude Include="Controllers\MenuController.h" />
     <ClInclude Include="Controllers\PlaylistController.h" />
+    <ClInclude Include="Controllers\PlaylistSongsController.h" />
     <ClInclude Include="Controllers\SearchController.h" />
     <ClInclude Include="Controllers\SongController.h" />
+    <ClInclude Include="Models\Playlist.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />

@@ -2,12 +2,14 @@
 #include <string>
 #include "./Controller.h"
 
-class SongController: public Controller 
+class SongController : public Controller
 {
 public:
 	static void add();
 
-	SongController();
+	static void printAll();
+
+	SongController() : songName(""), length(-1), performer(""), genreId(-1) {};
 protected:
 	std::string songName;
 	int length;

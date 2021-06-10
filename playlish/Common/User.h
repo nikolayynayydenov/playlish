@@ -20,7 +20,7 @@ public:
 	{
 		return User::getInstance().isLogged;
 	}
-
+	
 	static void login(SACommand& selectCommand)
 	{
 		long colCount = selectCommand.FieldCount();

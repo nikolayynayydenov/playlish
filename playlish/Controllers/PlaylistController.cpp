@@ -1,23 +1,32 @@
+#include <SQLAPI.h>
+
 #include "./PlaylistController.h"
+#include "./PlaylistSongsController.h"
+
 #include "./../Common/App.h"
 #include "./../Common/Navigator.h"
 #include "./../Common/DB.h"
 #include "./../Common/User.h"
-#include <SQLAPI.h>
+#include "./../Common/Console.h"
+#include "./../Models/Playlist.h"
+
+using std::endl;
+using std::cout;
+using std::cin;
 
 void PlaylistController::add()
 {
-	PlaylistController playlistController;
-	playlistController.promptAddInput();
+	Playlist playlist;
+	playlist.promptInput();
 
-	if (!playlistController.validateAddInput()) {
+	if (!playlist.validateAddInput()) {
 		App::setMessage("Invalid input");
 		Navigator::goTo("menu.playlists.add");
 		return;
 	}
 
 	try {
-		playlistController.insertToDb();
+		playlist.insertToDb();
 		App::setMessage("Successfully added playlist.");
 		Navigator::goTo("menu");
 	}
@@ -33,6 +42,9 @@ void PlaylistController::showOwnPlaylists()
 	playlistController.printOwnPlaylists();
 	playlistController.promptPlaylistChoice();
 	playlistController.displayPlaylistById();
+	playlistController.promptPlaylistAction();
+	Console::clear();
+	playlistController.handlePlaylistAction();
 }
 
 void PlaylistController::printOwnPlaylists() const
@@ -41,8 +53,8 @@ void PlaylistController::printOwnPlaylists() const
 	SACommand insert(&con);
 
 	insert.setCommandText(_TSA(
-		"SELECT [playlists].* FROM [playlist_user]"
-		"INNER JOIN[playlists] ON [playlist_user].[playlist_id] = [playlists].[id]"
+		"SELECT [playlists].* FROM [playlist_user] "
+		"INNER JOIN [playlists] ON [playlist_user].[playlist_id] = [playlists].[id] "
 		"WHERE[playlist_user].[user_id] = :1"
 	));
 
@@ -50,12 +62,12 @@ void PlaylistController::printOwnPlaylists() const
 
 	insert.Execute();
 
-	std::cout << "Below are your playlists. Type in an id to view the playlist's songs" << std::endl << std::endl;
+	cout << "Below are your playlists. Type in an id to view the playlist's songs" << endl << endl;
 
 	while (insert.FetchNext()) {
-		std::cout << insert.Field("id").asString().GetMultiByteChars() << ". " <<
-					 insert.Field("name").asString().GetMultiByteChars() << std::endl;
-	}	
+		cout << insert.Field("id").asString().GetMultiByteChars() << ". " <<
+			insert.Field("name").asString().GetMultiByteChars() << endl;
+	}
 }
 
 void PlaylistController::displayPlaylistById() const
@@ -64,10 +76,10 @@ void PlaylistController::displayPlaylistById() const
 	SACommand insert(&con);
 
 	insert.setCommandText(_TSA(
-		"SELECT * FROM[playlists] "
-		"LEFT JOIN[playlist_song] ON[playlist_song].[playlist_id] = [playlists].id "
-		"LEFT JOIN [songs] ON[playlist_song].[song_id] = [songs].[id] "
-		"WHERE[playlists].[id] = :1"
+		"SELECT * FROM [playlists] "
+		"LEFT JOIN [playlist_song] ON [playlist_song].[playlist_id] = [playlists].id "
+		"LEFT JOIN [songs] ON [playlist_song].[song_id] = [songs].[id] "
+		"WHERE [playlists].[id] = :1"
 	));
 
 	insert.Param(1).setAsLong() = id;
@@ -75,63 +87,57 @@ void PlaylistController::displayPlaylistById() const
 	insert.Execute();
 
 	if (insert.FetchNext()) {
-		std::cout << "Playlist name: " << insert.Field("name").asString().GetMultiByteChars() << std::endl;
-		
+		cout << "Playlist name: " << insert.Field("name").asString().GetMultiByteChars() << endl;
 	}
 	else {
-		std::cout << "Playlist was not found." << std::endl;
+		cout << "Playlist was not found." << endl;
 	}
 }
 
-void PlaylistController::promptPlaylistChoice() 
+void PlaylistController::promptPlaylistAction()
 {
-	std::cout << "Choice: ";
-	std::cin >> id;
+	cout << "Actions" << endl << endl;
+
+	cout << "1. Add song" << endl;
+	cout << "2. Remove song" << endl;
+	cout << "3. Delete playlist" << endl;
+	cout << "4. Go back" << endl;
+
+	cout << "Action choice: ";
+	cin >> action;
 }
 
-void PlaylistController::insertToDb()
+void PlaylistController::handlePlaylistAction()
 {
-	SAConnection& con = DB::conn();
-	SACommand insert(&con);
-
-	insert.setCommandText(_TSA("INSERT INTO [playlish].[dbo].[playlists] (name, active_from) VALUES (:1, :2); SELECT SCOPE_IDENTITY()"));
-	insert << _TSA(playlistName.c_str()) << _TSA("2021-04-04");
-
-	insert.Execute();
-
-	if (insert.RowsAffected() == 0) {
-		throw std::exception("Unable to insert playlist");
+	while (action == 0) {
+		promptPlaylistAction();
 	}
 
-	insert.FetchNext();
-
-	attachToUser(insert.Field(1).asLong());
-}
-
-void PlaylistController::promptAddInput()
-{
-	std::cout << "Playlist name: ";
-	std::cin >> playlistName;
-}
-
-bool PlaylistController::validateAddInput() const
-{
-	return true;
-}
-
-void PlaylistController::attachToUser(long id) const
-{
-	SAConnection& con = DB::conn();
-	SACommand insert(&con);
-
-	insert.setCommandText(_TSA("INSERT INTO [playlish].[dbo].[playlist_user] (playlist_id, user_id) VALUES (:1, :2)"));
-	
-	insert.Param(1).setAsLong() = id;
-	insert.Param(2).setAsString() = _TSA(User::get("id").c_str());
-
-	insert.Execute();
-
-	if (insert.RowsAffected() == 0) {
-		throw std::exception("Unable to attach playlist");
+	switch (action) {
+	case 1:
+		PlaylistSongsController::handleAddSong(id);
+		break;
+	case 2:
+		PlaylistSongsController::handleDeleteSong(id);
+		break;
+	case 3:
+		PlaylistController::handleDelete();
+		break;
+	case 4:
+		Navigator::goTo("menu.playlists.showOwn");
+		break;
+	default:
+		break;
 	}
+}
+
+void PlaylistController::promptPlaylistChoice()
+{
+	cout << "Choice: ";
+	cin >> id;
+}
+
+void PlaylistController::handleDelete() const
+{
+
 }

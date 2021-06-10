@@ -6,7 +6,31 @@
 #include "./../Common/App.h"
 #include "./../Common/Navigator.h"
 
-SongController::SongController() {}
+using std::cout;
+using std::endl;
+
+void SongController::printAll()
+{
+	SAConnection& con = DB::conn();
+	SACommand select(&con);
+
+	select.setCommandText(_TSA("SELECT * FROM [songs]"));
+
+	select.Execute();
+
+	int counter = 0;
+
+	cout << endl << "All songs: " << endl << endl;
+
+	while (select.FetchNext()) {
+		cout << select.Field(_TSA("id")).asString().GetMultiByteChars() << ". " << select.Field(_TSA("name")).asString().GetMultiByteChars() << endl;
+		counter++;
+	}
+
+	if (counter == 0) {
+		cout << "No songs found" << endl;
+	}
+}
 
 void SongController::add()
 {

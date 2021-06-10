@@ -23,6 +23,12 @@
     <ClCompile Include="Controllers\PlaylistController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="Controllers\PlaylistSongsController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\Playlist.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\AuthController.h">
@@ -61,6 +67,12 @@
     <ClInclude Include="Controllers\Controller.h">
       <Filter>Controllers</Filter>
     </ClInclude>
+    <ClInclude Include="Controllers\PlaylistSongsController.h">
+      <Filter>Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\Playlist.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
@@ -71,6 +83,9 @@
     </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{e6d77161-042d-4970-9034-97cf94b84b1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{9068744b-cc65-4017-a98b-498fbb52cb3f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

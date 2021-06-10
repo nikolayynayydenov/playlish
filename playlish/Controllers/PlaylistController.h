@@ -4,25 +4,29 @@
 #include "./Controller.h"
 #include <string>
 
-class PlaylistController : public Controller
+class PlaylistController
 {
 public:
 	static void add();
 
 	static void showOwnPlaylists();
 
+	PlaylistController() : action(0), id(-1) {}
+
 protected:
-	std::string playlistName;
+	int action;
 	int id;
 
-	// add
-	void insertToDb();
-	void promptAddInput();
-	bool validateAddInput() const;
-	void attachToUser(long playlistId) const;
-
-	//show
+	// show
 	void printOwnPlaylists() const;
 	void promptPlaylistChoice();
-	void displayPlaylistById() const;
+	void displayPlaylistById() const;	
+
+	// delete
+	void handleDelete() const;
+
+	// other
+	void promptPlaylistAction();
+	void handlePlaylistAction();
+	
 };
