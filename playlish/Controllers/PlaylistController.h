@@ -24,6 +24,7 @@ protected:
 
 	// delete
 	void handleDelete() const;
+	void deletePlaylist() const;
 
 	// other
 	void promptPlaylistAction();

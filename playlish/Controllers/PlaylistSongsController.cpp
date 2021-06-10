@@ -58,5 +58,35 @@ void PlaylistSongsController::attachSongToPlaylist() const
 
 void PlaylistSongsController::handleDeleteSong(int playlistId)
 {
+	SongController::printAll();
 
+	PlaylistSongsController controller;
+	controller.playlistId = playlistId;
+	controller.promptSongId();
+
+	try {
+		controller.detachSongFromPlaylist();
+		App::setMessage("Song successfully removed from playlist");
+		Navigator::goTo("menu.playlists.showOwn");
+	}
+	catch (exception exception) {
+		App::setMessage(exception.what());
+		Navigator::goTo("menu.playlists.showOwn");
+	}
+}
+
+void PlaylistSongsController::detachSongFromPlaylist() const
+{
+	SAConnection& con = DB::conn();
+	SACommand deleteCommand(&con);
+
+	deleteCommand.setCommandText(_TSA("DELETE FROM [playlist_song] WHERE [playlist_id] = :1 AND [song_id] = :2"));
+	deleteCommand.Param(1).setAsLong() = playlistId;
+	deleteCommand.Param(2).setAsLong() = songId;
+
+	deleteCommand.Execute();
+
+	if (deleteCommand.RowsAffected() == 0) {
+		throw exception("Unable to demove song from playlist");
+	}
 }

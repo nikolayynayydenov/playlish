@@ -50,7 +50,6 @@ void Navigator::goTo(std::string path) {
 
 	// Fallback
 	else {
-		// Invalid path
 		std::cout << "Invalid path: " << path << std::endl;
 	}
 }
