@@ -10,15 +10,12 @@ using std::exception;
 using std::cout;
 using std::cin;
 
-
-void PlaylistSongsController::handleAddSong(int playlistId)
+void PlaylistSongsController::addSongToPlaylist(int playlistId)
 {
-	SongController::printAll();
-
 	PlaylistSongsController controller;
 	controller.playlistId = playlistId;
 	controller.promptSongId();
-	
+
 	try {
 		controller.attachSongToPlaylist();
 		App::setMessage("Song successfully added to playlist");
@@ -33,6 +30,14 @@ void PlaylistSongsController::handleAddSong(int playlistId)
 		Navigator::goTo("menu.playlists.showOwn");
 	}
 }
+
+void PlaylistSongsController::handleAddSong(int playlistId)
+{
+   SongController::printAll();
+   addSongToPlaylist(playlistId);
+}
+
+
 
 void PlaylistSongsController::promptSongId()
 {
@@ -55,6 +60,8 @@ void PlaylistSongsController::attachSongToPlaylist() const
 		throw exception("Unable to attach song to playlist");
 	}
 }
+
+
 
 void PlaylistSongsController::handleDeleteSong(int playlistId)
 {
