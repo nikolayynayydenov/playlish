@@ -1,6 +1,10 @@
 #pragma once
 #include <stdio.h>  
 #include <SQLAPI.h>
+#include <vector>
+#include "./Config.h"
+
+using std::vector;
 
 class DB
 {
@@ -23,7 +27,8 @@ private:
 
     DB() {
         try {
-            connection.Connect(_TSA("DESKTOP-GI5Q4L5\\SQLEXPRESS@playlish"), _TSA("tsetso"), _TSA("tsetso"), SA_SQLServer_Client);
+            vector<string> credentials = Config::getDbCredentials();
+            connection.Connect(_TSA(credentials[0].c_str()), _TSA(credentials[1].c_str()), _TSA(credentials[2].c_str()), SA_SQLServer_Client);
         }
         catch (SAException& x) {
             connection.Rollback();
