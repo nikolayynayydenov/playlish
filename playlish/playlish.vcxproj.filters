@@ -29,6 +29,9 @@
     <ClCompile Include="Models\Playlist.cpp">
       <Filter>Models</Filter>
     </ClCompile>
+    <ClCompile Include="SearchController.cpp">
+      <Filter>Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\AuthController.h">

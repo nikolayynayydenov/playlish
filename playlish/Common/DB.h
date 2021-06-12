@@ -23,7 +23,7 @@ private:
 
     DB() {
         try {
-            connection.Connect(_TSA("DESKTOP-GI5Q4L5\\SQLEXPRESS@playlish"), _TSA("tsetso"), _TSA("tsetso"), SA_SQLServer_Client);
+            connection.Connect(_TSA("DESKTOP-RL43607\\SQLEXPRESS01@playlish"), _TSA("test_login"), _TSA("test_login"), SA_SQLServer_Client);
         }
         catch (SAException& x) {
             connection.Rollback();
