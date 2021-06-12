@@ -8,7 +8,7 @@ int main(int argc, char* argv[]) {
 	try {
 		Navigator::goTo("menu");
 
-		int result = Catch::Session().run(argc, argv);
+		//int result = Catch::Session().run(argc, argv);
 	}
 	catch (SAException& x) {
 		DB::conn().Rollback();

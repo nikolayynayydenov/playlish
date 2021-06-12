@@ -34,7 +34,7 @@
     </ClCompile>
     <ClCompile Include="Tests\catch_amalgamated.cpp">
       <Filter>Tests</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="SearchController.cpp">
       <Filter>Controllers</Filter>
     </ClCompile>
@@ -88,6 +88,22 @@
     <ClInclude Include="Tests\catch_amalgamated.hpp">
       <Filter>Tests</Filter>
     </ClInclude>
+    <ClInclude Include="Validation\Fields\Auth\UsernameField.h">
+      <Filter>Validation\Fields\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation\Fields\Field.h">
+      <Filter>Validation</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation\Fields\Auth\EmailField.h">
+      <Filter>Validation\Fields\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation\Fields\Auth\PasswordField.h">
+      <Filter>Validation\Fields\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation\Fields\Auth\PasswordConfirmationField.h">
+      <Filter>Validation\Fields\Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\UserModel.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
@@ -104,6 +120,15 @@
     </Filter>
     <Filter Include="Tests">
       <UniqueIdentifier>{c1337554-adaa-459f-a5f4-977d1bc9026a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Validation">
+      <UniqueIdentifier>{d0a06f2e-6a76-4a29-8938-6659f00366be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Validation\Fields">
+      <UniqueIdentifier>{4c2f5945-6f27-4dad-a59e-b85527976151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Validation\Fields\Auth">
+      <UniqueIdentifier>{59b4958e-4e6e-436b-b559-d45b5407294c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

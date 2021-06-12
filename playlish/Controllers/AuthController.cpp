@@ -1,11 +1,25 @@
-#include "./AuthController.h"
 #include <SQLAPI.h>
 #include <iostream>
+#include <regex>
+
+#include "./AuthController.h"
+#include "./MenuController.h"
+
 #include "./../Common/User.h"
 #include "./../Common/DB.h"
-#include "./MenuController.h"
 #include "./../Common/Navigator.h"
 #include "./../Common/App.h"
+
+#include "./../Validation/Fields/Auth/UsernameField.h"
+#include "./../Validation/Fields/Auth/EmailField.h"
+#include "./../Validation/Fields/Auth/PasswordField.h"
+#include "./../Validation/Fields/Auth/PasswordConfirmationField.h"
+
+using std::regex;
+using std::cout;
+using std::cin;
+using std::exception;
+using std::endl;
 
 void AuthController::handleSignUp()
 {
@@ -13,18 +27,12 @@ void AuthController::handleSignUp()
 	authController.showInitialMessage();
 	authController.promptSignUpInput();
 
-	if (!authController.validateSignUpInput()) {
-		App::setMessage("Invalid input.");
-		Navigator::goTo("menu.signUp");
-		return;
-	}
-
 	try {
 		authController.signUp();
 		App::setMessage("Successfully signed up. Please sing in.");
 		Navigator::goTo("menu.signIn");
 	}
-	catch (std::exception exception) {
+	catch (exception exception) {
 		App::setMessage(exception.what());
 		Navigator::goTo("menu");
 	}
@@ -35,18 +43,13 @@ void AuthController::handleSignIn()
 	AuthController authController;
 	authController.showInitialMessage();
 	authController.promptSignInInput();
-	if (!authController.validateSignInInput()) {
-		App::setMessage("Invalid input.");
-		Navigator::goTo("menu.signIn");
-		return;
-	}
 
 	try {
 		authController.signIn();
 		App::setMessage("Successfully logged in");
 		Navigator::goTo("menu");
 	}
-	catch (std::exception exception) {
+	catch (exception exception) {
 		App::setMessage(exception.what());
 		Navigator::goTo("menu");
 	}
@@ -61,22 +64,18 @@ void AuthController::logout()
 
 void AuthController::showInitialMessage() const
 {
-	std::cout << "Please type in you credentials." << std::endl;
+	cout << "Please type in you credentials." << endl;
 }
 
 void AuthController::promptSignUpInput()
 {
-	std::cout << "Email: ";
-	std::cin >> email;
+	username = UsernameField().prompt();
 
-	std::cout << "Username: ";
-	std::cin >> username;
+	email = EmailField().prompt();
 
-	std::cout << "Password: ";
-	std::cin >> password;
+	password = PasswordField().prompt();
 
-	std::cout << "Confirm password: ";
-	std::cin >> passwordConfirmation;
+	passwordConfirmation = PasswordConfirmationField(password).prompt();
 }
 
 void AuthController::signUp() const
@@ -84,21 +83,8 @@ void AuthController::signUp() const
 	int rowsAffected = insertUser();
 
 	if (rowsAffected == 0) {
-		throw std::exception("Unable to sign up user.");
+		throw exception("Unable to sign up user.");
 	}
-
-}
-
-bool AuthController::userExists() const
-{
-	SAConnection& con = DB::conn();
-	SACommand select(&con);
-
-	select.setCommandText(_TSA("SELECT * FROM [playlish].[dbo].[users] WHERE [name] = :1"));
-	select << _TSA(username.c_str());
-	select.Execute();
-
-	return select.FetchNext();
 
 }
 
@@ -114,23 +100,11 @@ int AuthController::insertUser() const
 	return insert.RowsAffected();
 }
 
-bool AuthController::validateSignUpInput() const
-{
-	if (userExists()) {
-		std::cout << "A user with this username already exists." << std::endl;
-		return false;
-	}
-
-	return true;
-}
-
 void AuthController::promptSignInInput()
 {
-	std::cout << "Username: ";
-	std::cin >> username;
+	username = UsernameField().promptForSignIn();
 
-	std::cout << "Password: ";
-	std::cin >> password;
+	password = PasswordField().prompt();
 }
 
 void AuthController::signIn() const
@@ -146,11 +120,6 @@ void AuthController::signIn() const
 		User::login(select);
 	}
 	else {
-		throw std::exception("Invalid username or password");
+		throw exception("Invalid username or password");
 	}
-}
-
-bool AuthController::validateSignInInput() const
-{
-	return true;
 }

@@ -202,7 +202,13 @@
     <ClInclude Include="Controllers\SearchController.h" />
     <ClInclude Include="Controllers\SongController.h" />
     <ClInclude Include="Models\Playlist.h" />
+    <ClInclude Include="Models\UserModel.h" />
     <ClInclude Include="Tests\catch_amalgamated.hpp" />
+    <ClInclude Include="Validation\Fields\Auth\PasswordConfirmationField.h" />
+    <ClInclude Include="Validation\Fields\Auth\EmailField.h" />
+    <ClInclude Include="Validation\Fields\Auth\PasswordField.h" />
+    <ClInclude Include="Validation\Fields\Auth\UsernameField.h" />
+    <ClInclude Include="Validation\Fields\Field.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
