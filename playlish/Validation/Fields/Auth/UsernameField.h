@@ -36,8 +36,6 @@ public:
 	{		
 		return value.length() > MIN_LENGTH && 
 			value.length() < MAX_LENGTH &&
-			!UserModel::userExists(value);
+			!UserModel::exists(value);
 	}
-
-
 };

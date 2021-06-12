@@ -1,16 +1,14 @@
 #pragma once
 
 #include <string>
+#include "./../Models/UserModel.h"
 
 using std::string;
 
 class AuthController
 {
 public:
-	string email;
-	string username;
-	string password;
-	string passwordConfirmation;
+	UserModel* user;
 
 	static void handleSignUp();
 
@@ -18,7 +16,27 @@ public:
 
 	static void logout();
 
-	AuthController() : email(""), username(""), password(""), passwordConfirmation("") { }
+	AuthController() : user(new UserModel) { }
+
+	AuthController(const AuthController& other)
+	{
+		copy(other);
+	}
+
+	~AuthController()
+	{
+		delete user;
+	}
+
+	AuthController& operator=(const AuthController& other)
+	{
+		if (this != &other) {
+			erase();
+			copy(other);
+		}
+
+		return *this;
+	}
 
 protected:
 
@@ -28,10 +46,18 @@ protected:
 
 	void signUp() const;
 
-	int insertUser() const;
-
 	void promptSignInInput();
 
 	void signIn() const;
+
+	AuthController& copy(const AuthController& other)
+	{
+		user = other.user;
+	}
+
+	void erase()
+	{
+		delete user;
+	}
 };
 

@@ -69,18 +69,18 @@ void AuthController::showInitialMessage() const
 
 void AuthController::promptSignUpInput()
 {
-	username = UsernameField().prompt();
+	user->username = UsernameField().prompt();
 
-	email = EmailField().prompt();
+	user->email = EmailField().prompt();
 
-	password = PasswordField().prompt();
+	user->password = PasswordField().prompt();
 
-	passwordConfirmation = PasswordConfirmationField(password).prompt();
+	user->passwordConfirmation = PasswordConfirmationField(user->password).prompt();
 }
 
 void AuthController::signUp() const
 {
-	int rowsAffected = insertUser();
+	int rowsAffected = user->insert();
 
 	if (rowsAffected == 0) {
 		throw exception("Unable to sign up user.");
@@ -88,23 +88,11 @@ void AuthController::signUp() const
 
 }
 
-int AuthController::insertUser() const
-{
-	SAConnection& con = DB::conn();
-	SACommand insert(&con);
-
-	insert.setCommandText(_TSA("INSERT INTO users (name, email, password, active_from) VALUES (:1, :2, :3, :4)"));
-	insert << _TSA(username.c_str()) << _TSA(email.c_str()) << _TSA(password.c_str()) << _TSA("2021-04-21");
-	insert.Execute();
-
-	return insert.RowsAffected();
-}
-
 void AuthController::promptSignInInput()
 {
-	username = UsernameField().promptForSignIn();
+	user->username = UsernameField().promptForSignIn();
 
-	password = PasswordField().prompt();
+	user->password = PasswordField().prompt();
 }
 
 void AuthController::signIn() const
@@ -113,7 +101,7 @@ void AuthController::signIn() const
 	SACommand select(&con);
 
 	select.setCommandText(_TSA("SELECT * FROM [playlish].[dbo].[users] WHERE [name] = :1 AND [password] = :2"));
-	select << _TSA(username.c_str()) << _TSA(password.c_str());
+	select << _TSA(user->username.c_str()) << _TSA(user->password.c_str());
 	select.Execute();
 
 	if (select.FetchNext()) {
