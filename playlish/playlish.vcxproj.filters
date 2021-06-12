@@ -29,6 +29,12 @@
     <ClCompile Include="Models\Playlist.cpp">
       <Filter>Models</Filter>
     </ClCompile>
+    <ClCompile Include="Tests\PlaygroudTestCase.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\catch_amalgamated.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controllers\AuthController.h">
@@ -73,6 +79,12 @@
     <ClInclude Include="Models\Playlist.h">
       <Filter>Models</Filter>
     </ClInclude>
+    <ClInclude Include="Common\Config.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests\catch_amalgamated.hpp">
+      <Filter>Tests</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
@@ -86,6 +98,9 @@
     </Filter>
     <Filter Include="Models">
       <UniqueIdentifier>{9068744b-cc65-4017-a98b-498fbb52cb3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{c1337554-adaa-459f-a5f4-977d1bc9026a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

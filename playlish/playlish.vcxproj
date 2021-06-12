@@ -72,26 +72,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)playlish\Tests;D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)playlish\Tests;D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)playlish\Tests;D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)playlish\Tests;D:\Programs\SQLAPI\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
@@ -113,7 +113,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +133,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -154,7 +154,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -180,9 +180,12 @@
     <ClCompile Include="Controllers\SongController.cpp" />
     <ClCompile Include="Models\Playlist.cpp" />
     <ClCompile Include="playlish.cpp" />
+    <ClCompile Include="Tests\catch_amalgamated.cpp" />
+    <ClCompile Include="Tests\PlaygroudTestCase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common\App.h" />
+    <ClInclude Include="Common\Config.h" />
     <ClInclude Include="Common\DB.h" />
     <ClInclude Include="Common\Navigator.h" />
     <ClInclude Include="Common\User.h" />
@@ -196,6 +199,7 @@
     <ClInclude Include="Controllers\SearchController.h" />
     <ClInclude Include="Controllers\SongController.h" />
     <ClInclude Include="Models\Playlist.h" />
+    <ClInclude Include="Tests\catch_amalgamated.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />
