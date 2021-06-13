@@ -343,3 +343,5 @@ healthchecksdb
 # Other
 
 playlish/db_credentials
+
+SQLAPI/
