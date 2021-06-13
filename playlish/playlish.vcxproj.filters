@@ -103,7 +103,9 @@
     <ClInclude Include="Validation\Fields\Auth\PasswordConfirmationField.h">
       <Filter>Validation\Fields\Auth</Filter>
     </ClInclude>
-    <ClInclude Include="Models\UserModel.h" />
+    <ClInclude Include="Models\UserModel.h">
+      <Filter>Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\menu.json" />

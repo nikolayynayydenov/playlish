@@ -8,8 +8,6 @@ using std::string;
 class AuthController
 {
 public:
-	UserModel* user;
-
 	static void handleSignUp();
 
 	static void handleSignIn();
@@ -39,6 +37,7 @@ public:
 	}
 
 protected:
+	UserModel* user;
 
 	void showInitialMessage() const;
 
