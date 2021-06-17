@@ -90,9 +90,9 @@ void AuthController::signUp() const
 
 void AuthController::promptSignInInput()
 {
-	user->username = UsernameField().promptForSignIn();
+	user->username = UsernameField().simplePrompt();
 
-	user->password = PasswordField().prompt();
+	user->password = PasswordField().simplePrompt();
 }
 
 void AuthController::signIn() const

@@ -18,14 +18,6 @@ public:
 
 	UsernameField() : Field<string>("Username") {}
 
-	string promptForSignIn()
-	{
-		cout << name << ": ";
-		cin >> value;
-
-		return value;
-	}
-
 	void showError()
 	{
 		cout << "Username must be unique and between " << MIN_LENGTH <<

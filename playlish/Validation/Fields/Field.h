@@ -37,4 +37,12 @@ public:
 
 		return value;
 	}
+
+	T simplePrompt()
+	{
+		cout << name << ": ";
+		cin >> value;
+
+		return value;
+	}
 };
