@@ -29,8 +29,8 @@ public:
 	{
 		const regex pattern(".*[0-9].*");
 
-		return value.length() > MIN_LENGTH && 
-			value.length() < MAX_LENGTH &&
+		return value.length() >= MIN_LENGTH && 
+			value.length() <= MAX_LENGTH &&
 			regex_match(value, pattern);
 	}
 };

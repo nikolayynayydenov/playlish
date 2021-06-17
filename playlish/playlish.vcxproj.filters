@@ -29,14 +29,14 @@
     <ClCompile Include="Models\Playlist.cpp">
       <Filter>Models</Filter>
     </ClCompile>
-    <ClCompile Include="Tests\PlaygroudTestCase.cpp">
-      <Filter>Tests</Filter>
-    </ClCompile>
     <ClCompile Include="Tests\catch_amalgamated.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
     <ClCompile Include="SearchController.cpp">
       <Filter>Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests\Authentication.cpp">
+      <Filter>Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

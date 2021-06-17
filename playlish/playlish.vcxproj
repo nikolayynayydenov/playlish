@@ -183,7 +183,7 @@
     <ClCompile Include="Models\Playlist.cpp" />
     <ClCompile Include="playlish.cpp" />
     <ClCompile Include="Tests\catch_amalgamated.cpp" />
-    <ClCompile Include="Tests\PlaygroudTestCase.cpp" />
+    <ClCompile Include="Tests\Authentication.cpp" />
     <ClCompile Include="SearchController.cpp" />
   </ItemGroup>
   <ItemGroup>

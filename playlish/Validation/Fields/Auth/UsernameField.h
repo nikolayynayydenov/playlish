@@ -26,8 +26,8 @@ public:
 
 	bool validate()
 	{		
-		return value.length() > MIN_LENGTH && 
-			value.length() < MAX_LENGTH &&
+		return value.length() >= MIN_LENGTH && 
+			value.length() <= MAX_LENGTH &&
 			!UserModel::exists(value);
 	}
 };
