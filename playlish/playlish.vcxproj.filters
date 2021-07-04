@@ -108,9 +108,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Config\menu.json" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Controllers">
       <UniqueIdentifier>{257d94f3-e306-4c73-9710-9601ce239588}</UniqueIdentifier>
     </Filter>

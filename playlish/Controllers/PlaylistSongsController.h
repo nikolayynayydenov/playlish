@@ -19,4 +19,5 @@ protected:
 
 	void promptSongId();
 	void detachSongFromPlaylist() const;
+	void printPlaylistSongs() const;
 };

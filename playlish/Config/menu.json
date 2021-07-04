@@ -1,8 +1,0 @@
-{
-  "options": {
-    "authenticated": [
-      "1. Login",
-      "2. Create an account"
-    ]
-  }
-}

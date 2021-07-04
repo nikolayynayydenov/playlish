@@ -90,7 +90,6 @@ void PlaylistController::printOwnPlaylists() const
 	cout << endl;
 }
 
-// TODO: method is too long, refactor
 void PlaylistController::displayPlaylistById() const
 {
 	SAConnection& con = DB::conn();

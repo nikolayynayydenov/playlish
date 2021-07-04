@@ -102,8 +102,7 @@
       <AdditionalDependencies>sqlapid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)
-</Command>
+      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,8 +123,7 @@
       <AdditionalDependencies>sqlapid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)
-</Command>
+      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,8 +142,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)
-</Command>
+      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -167,8 +164,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)
-</Command>
+      <Command>xcopy /y/d $(SolutionDir)SQLAPI\vs2019\bin\sqlapid.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -209,9 +205,6 @@
     <ClInclude Include="Validation\Fields\Auth\PasswordField.h" />
     <ClInclude Include="Validation\Fields\Auth\UsernameField.h" />
     <ClInclude Include="Validation\Fields\Field.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Config\menu.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

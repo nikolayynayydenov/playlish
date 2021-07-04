@@ -9,6 +9,7 @@
 using std::exception;
 using std::cout;
 using std::cin;
+using std::endl;
 
 void PlaylistSongsController::addSongToPlaylist(int playlistId)
 {
@@ -37,8 +38,6 @@ void PlaylistSongsController::handleAddSong(int playlistId)
    addSongToPlaylist(playlistId);
 }
 
-
-
 void PlaylistSongsController::promptSongId()
 {
 	cout << "Song id: ";
@@ -61,14 +60,12 @@ void PlaylistSongsController::attachSongToPlaylist() const
 	}
 }
 
-
-
 void PlaylistSongsController::handleDeleteSong(int playlistId)
 {
-	SongController::printAll();
 
 	PlaylistSongsController controller;
 	controller.playlistId = playlistId;
+	controller.printPlaylistSongs();
 	controller.promptSongId();
 
 	try {
@@ -80,6 +77,37 @@ void PlaylistSongsController::handleDeleteSong(int playlistId)
 		App::setMessage(exception.what());
 		Navigator::goTo("menu.playlists.showOwn");
 	}
+}
+
+void PlaylistSongsController::printPlaylistSongs() const
+{
+	SAConnection& con = DB::conn();
+	SACommand insert(&con);
+
+	insert.setCommandText(_TSA(
+		"SELECT [playlists].* FROM [playlist_song] "
+		"INNER JOIN [playlists] ON [playlist_song].[playlist_id] = [playlists].[id] "
+		"WHERE[playlist_song].[playlist_id] = :1"
+	));
+
+	insert.Param(1).setAsLong() = playlistId;
+
+	insert.Execute();
+
+	int counter = 0;
+
+	while (insert.FetchNext()) {
+		cout << insert.Field("id").asString().GetMultiByteChars() << ". " <<
+			insert.Field("name").asString().GetMultiByteChars() << endl;
+
+		counter++;
+	}
+
+	if (counter == 0) {
+		cout << "There are no songs in this playlist.";
+	}
+
+	cout << endl;
 }
 
 void PlaylistSongsController::detachSongFromPlaylist() const
