@@ -1,10 +1,13 @@
 #include <SQLAPI.h>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 #include "./Playlist.h"
 #include "./../Common/DB.h"
 #include "./../Common/User.h"
 
-using std::cout, std::cin;
 
+using std::cout, std::cin;
 
 void Playlist::promptInput()
 {
@@ -17,9 +20,11 @@ void Playlist::insertToDb()
 	SAConnection& con = DB::conn();
 	SACommand insert(&con);
 
-	insert.setCommandText(_TSA("INSERT INTO [playlish].[dbo].[playlists] (name, active_from) VALUES (:1, :2); SELECT SCOPE_IDENTITY()"));
-	insert << _TSA(playlistName.c_str()) << _TSA("2021-04-04");
+	auto time_now = std::chrono::system_clock::now();
 
+	insert.setCommandText(_TSA("INSERT INTO [playlish].[dbo].[playlists] (name, active_from) VALUES (:1, GETDATE()); SELECT SCOPE_IDENTITY()"));
+	insert << _TSA(playlistName.c_str());
+		
 	insert.Execute();
 
 	if (insert.RowsAffected() == 0) {
