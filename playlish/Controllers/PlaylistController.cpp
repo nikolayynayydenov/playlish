@@ -65,7 +65,7 @@ void PlaylistController::printOwnPlaylists() const
 	insert.setCommandText(_TSA(
 		"SELECT [playlists].* FROM [playlist_user] "
 		"INNER JOIN [playlists] ON [playlist_user].[playlist_id] = [playlists].[id] "
-		"WHERE[playlist_user].[user_id] = :1"
+		"WHERE[playlist_user].[user_id] = :1 AND [active_to] is null"
 	));
 
 	insert << User::get("id").c_str();
@@ -177,7 +177,7 @@ void PlaylistController::deletePlaylist() const
 	SAConnection& con = DB::conn();
 	SACommand deleteCommand(&con);
 
-	deleteCommand.setCommandText(_TSA("DELETE FROM [playlists] WHERE [id] = :1"));
+	deleteCommand.setCommandText(_TSA("update [playlists] set active_to = getdate() WHERE [id] = :1"));
 	deleteCommand.Param(1).setAsLong() = id;
 
 	deleteCommand.Execute();

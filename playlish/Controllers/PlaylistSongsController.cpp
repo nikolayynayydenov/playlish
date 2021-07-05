@@ -27,7 +27,7 @@ void PlaylistSongsController::addSongToPlaylist(int playlistId)
 		Navigator::goTo("menu.playlists.showOwn");
 	}
 	catch (SAException& exception) {
-		App::setMessage("Unable to add song to playlist. It probably already exists in it.");
+		App::setMessage("Unable to add song to playlist. Song not found or already exists in it.");
 		Navigator::goTo("menu.playlists.showOwn");
 	}
 }
@@ -122,6 +122,6 @@ void PlaylistSongsController::detachSongFromPlaylist() const
 	deleteCommand.Execute();
 
 	if (deleteCommand.RowsAffected() == 0) {
-		throw exception("Unable to demove song from playlist");
+		throw exception("Unable to remove song from playlist");
 	}
 }
